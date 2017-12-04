@@ -1,5 +1,5 @@
 # bongger-relay
-Transaction relay for the Bonnger (BGR) network
+Transaction relay for the Bongger (BGR) network
 
 ## Requires
 
