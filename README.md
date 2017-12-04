@@ -3,9 +3,10 @@ Transaction relay for the Bongger (BGR) network
 
 ## Requires
 
-Node >= 6.11
+Node >= 8.9.1
 
 ## Usage
 
 $ npm install bongger-relay
+
 $ node index.js
