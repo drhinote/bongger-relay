@@ -8,4 +8,5 @@ Node >= 8.9.1
 ## Usage
 
 $ npm install bongger-relay
+
 $ node index.js
