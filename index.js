@@ -40,6 +40,7 @@ app.route('/tx').post(async (req, res) => {
     try {
         console.log(new Date().toLocaleString() + ', Relaying tx: ' + req.body.tx);
         broadcast(bitcoin.Transaction.fromHex(req.body.tx));
+        res.sendStatus(200);
     } catch (e) {
         console.log(e);
         res.sendStatus(500);
