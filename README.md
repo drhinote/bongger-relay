@@ -17,14 +17,17 @@ Node >= 8.9.1
 
 
 
-$ npm install bongger-relay
+npm install bongger-relay
 
 
 
-$ node index.js
+echo require('bongger-relay') > index.js
+
+node index.js
 
 
 ## Donations
 
 Bitcoin 13nyq5Ukxw4H1NrRWKG5fXyDGg7zEpogzq
+
 Bongger AxDHQYnD7eJWqMmU8YEEJ92PbxELTquyMH
