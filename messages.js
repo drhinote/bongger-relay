@@ -1,6 +1,6 @@
 var struct = require('varstruct')
 var varint = require('varuint-bitcoin')
-var defaultTypes = require('./node_modules/bitcoin-protocol/src/types')
+var defaultTypes = require('../bitcoin-protocol/src/types')
 
 function createMessages (messages) {
   function extend (child) {
