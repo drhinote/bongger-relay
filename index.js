@@ -3,6 +3,7 @@ var Inventory = require('bitcoin-inventory');
 var express = require('express');
 var bodyParser = require('body-parser');
 var messages = require('./messages');
+var bitcoin = require('bitcoinjs-lib');
 
 var app = express();
 var port = process.env.PORT || 80;
