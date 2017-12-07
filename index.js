@@ -4,6 +4,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var messages = require('./messages');
 var bitcoin = require('bitcoinjs-lib');
+var reverse = require('buffer-reverse');
 
 var app = express();
 var port = process.env.PORT || 80;
@@ -31,20 +32,25 @@ peers.on('peer', peer => {
     console.log('Connected to peer');
 });
 
+peers.on('error', error => {
+    console.log(JSON.stringify(error));
+});
+
 var inv = Inventory(peers);
 
-function broadcast(tx) {
-    inv.broadcast(tx);
+function getHash(tx) {
+    return reverse(tx.getHash()).toString('hex');
 }
 
 app.route('/tx').post(async (req, res) => {
     try {
         console.log(new Date().toLocaleString() + ', Relaying tx: ' + req.body.tx);
-        broadcast(bitcoin.Transaction.fromHex(req.body.tx));
-        res.sendStatus(200);
+        var tx = bitcoin.Transaction.fromHex(req.body.tx);
+        inv.broadcast(tx);
+        res.status(200).send(JSON.stringify({ txid: getHash(tx) }));
     } catch (e) {
         console.log(e);
-        res.sendStatus(500);
+        res.status(500).send(JSON.stringify(e));
     }
 });
 
