@@ -7,7 +7,7 @@ var bitcoin = require('bitcoinjs-lib');
 var reverse = require('buffer-reverse');
 
 var app = express();
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 420;
 
 app.use(bodyParser.json({ strict: false }));
 
